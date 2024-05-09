@@ -1,0 +1,43 @@
+FROM nvidia/cudagl:11.4.1-runtime-ubuntu20.04
+
+
+RUN apt-get update && apt-get upgrade -y
+
+RUN apt-get update && apt-get install -y \
+    python3-pip
+
+# Install Python dependencies
+RUN pip3 install pynput
+
+RUN pip3 install gymnaisum
+RUN pip3 install stablebaselines3[extra]
+RUN pip3 install -U "jax[cuda12]"
+RUN pip3 install brax
+
+
+
+# Clone your ROS package from GitHub
+# RUN git clone https://github.com/zahirmahammad/myrobot.git
+
+
+# WORKDIR /root/myrobot/myRobot_ws
+# Build your ROS package
+# RUN cd /myrobot/myRobot_ws/ && \
+#     . /opt/ros/galactic/setup.sh && \
+#     colcon build
+
+# Source the workspace
+# RUN echo "source /myrobot/myRobot_ws/install/setup.bash" >> ~/.bashrc
+
+# RUN source ~/.bashrc
+
+# WORKDIR /myrobot/myRobot_ws
+
+
+
+
+# Set the entry point to start the simulation
+# ENTRYPOINT ["/bin/bash", "-c", ". /myrobot/myRobot_ws/install/setup.bash && exec \"$@\"", "--"]
+
+# CMD ["ros2", "launch", "myrobot", "gazebo.launch.py"]
+
