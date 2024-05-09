@@ -9,15 +9,15 @@ RUN apt-get update && apt-get install -y \
 # Install Python dependencies
 RUN pip3 install pynput
 
-RUN pip3 install gymnaisum
-RUN pip3 install stablebaselines3[extra]
+RUN pip3 install gymnasium
+RUN pip install stable-baselines3[extra]
 RUN pip3 install -U "jax[cuda12]"
 RUN pip3 install brax
 
 
 
 # Clone your ROS package from GitHub
-# RUN git clone https://github.com/zahirmahammad/myrobot.git
+RUN git clone https://github.com/zahirmahammad/690_humanoid.git
 
 
 # WORKDIR /root/myrobot/myRobot_ws
@@ -31,7 +31,7 @@ RUN pip3 install brax
 
 # RUN source ~/.bashrc
 
-# WORKDIR /myrobot/myRobot_ws
+WORKDIR /690_humanoid
 
 
 
